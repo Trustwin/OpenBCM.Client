@@ -8,8 +8,12 @@
 import Foundation
 import RESTfulCore
 
+// TODO: Rework this a little to support returning a User object instead of a
+//       RESTfulResult.
+
+
 public class Login : RESTObject {
-    internal static let path : String = "api/user/login/"
+    internal static let path : String = "api/login/"
 
     public var loginId: Int?
     public var userName : String = ""
