@@ -12,7 +12,7 @@ import RESTfulCore
 //       RESTfulResult.
 
 
-public class User : RESTObject {
+public class User : RESTfulResult {
     internal static let path : String = "api/user/"
     
     public var firstName: String?
@@ -65,11 +65,11 @@ public class User : RESTObject {
         userName = with!["userName"] as? String
         email = with!["email"] as? String
         phoneNumber = with!["phoneNumber"] as? String
-        emailConfirmed = with!["emailConfirmed"] as! Bool
-        phoneNumberConfirmed = with!["phoneNumberConfirmed"] as! Bool
-        twoFactorEnabled = with!["twoFactorEnabled"] as! Bool
+        emailConfirmed = with!["emailConfirmed"] as? Bool ?? false
+        phoneNumberConfirmed = with!["phoneNumberConfirmed"] as? Bool ?? false
+        twoFactorEnabled = with!["twoFactorEnabled"] as? Bool ?? true
         lockoutEnd = with!["lockoutEnd"] as? Date
-        lockoutEnabled = with!["lockoutEnabled"] as! Bool
+        lockoutEnabled = with!["lockoutEnabled"] as? Bool ?? true
         accessFailedCount = with!["accessFailedCount"] as? Int
     }
     
