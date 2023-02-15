@@ -56,11 +56,11 @@ class LoginTests: XCTestCase {
         XCTAssertNotNil(config.pass, "No Password Setup:\n\tdefaults write openbcm.client.tests pass \"testPassword\"")
 
         let connection : Connection = Connection(basePath: config.host!)
-        let loggedIn : RESTfulResult? = try await Login.login(connection: connection,
+        let user : User? = try await Login.login(connection: connection,
                                           user: config.user!,
                                           password: config.pass!)
-        XCTAssertTrue(loggedIn != nil, "No Result Returned")
-        XCTAssertTrue(loggedIn!.succeeded, "Unable to validate login")
+        XCTAssertTrue(user != nil, "No Result Returned")
+        XCTAssertTrue(user!.id == nil, "Unable to validate login")
             
         // got here, trigger the logout
         let loggedOut : Bool = try await Login.logout(connection: connection)

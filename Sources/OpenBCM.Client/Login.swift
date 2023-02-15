@@ -123,7 +123,7 @@ extension Login {
     
     public static func login(connection: Connection,
                              user: String,
-                             password: String) async throws -> RESTfulResult? {
+                             password: String) async throws -> User? {
         let login = Login()
         login.userName = user
         login.password = password
