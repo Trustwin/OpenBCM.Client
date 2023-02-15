@@ -9,7 +9,7 @@ import Foundation
 import RESTfulCore
 
 public class Login : RESTObject {
-    internal static let path : String = "api/users/login/"
+    internal static let path : String = "api/user/login/"
 
     public var loginId: Int?
     public var userName : String = ""
