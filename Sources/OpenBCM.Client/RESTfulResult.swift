@@ -20,7 +20,7 @@ public class RESTfulResult : RESTObject {
     required public init(with: [String: Any]?) {
         super.init(with: with)
         
-        succeeded = with!["succeeded"] as! Bool
+        succeeded = with!["succeeded"] as? Bool ?? true
         info = with!["info"] as? [String]
         if (info == nil) {
             // try to parse the odd .net format elements
