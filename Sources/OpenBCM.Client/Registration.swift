@@ -9,7 +9,7 @@
 import Foundation
 import RESTfulCore
 
-public class Registration : RESTObject {
+public class Registration : RESTObject, ObservableObject {
     internal static let path : String = "api/User/Register/"
 
     public var firstName : String? = nil

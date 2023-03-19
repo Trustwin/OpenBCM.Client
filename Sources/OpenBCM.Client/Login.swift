@@ -12,7 +12,7 @@ import RESTfulCore
 //       RESTfulResult.
 
 
-public class Login : RESTObject {
+public class Login : RESTObject, ObservableObject {
     internal static let path : String = "api/login/"
 
     public var loginId: Int?

@@ -12,7 +12,7 @@ import RESTfulCore
 //       RESTfulResult.
 
 
-public class User : RESTfulResult {
+public class User : RESTfulResult, ObservableObject {
     internal static let path : String = "api/user/"
     
     public var firstName: String?

@@ -10,8 +10,8 @@ import Foundation
 import RESTfulCore
 
 /// Role is a Read Only implementation of the server side permissions
-/// used primarily in the User Manager
-public class Role : RESTfulResult {
+/// used primarily in the User Manager, however it can be.
+public class Role : RESTfulResult, ObservableObject {
     internal static let path : String = "api/user/role"
     
     public var id: String?
@@ -122,7 +122,13 @@ public class Role : RESTfulResult {
 
 // MARK: Connection Functions
 /*
-extension Login {
+extension Role {
+    // List
+    // Query
+    // Users
+ 
+ 
+ 
     public static func login(connection: Connection,
                              user: String,
                              password: String,
