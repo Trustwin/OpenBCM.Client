@@ -14,10 +14,10 @@ import RESTfulCore
 public class Role : RESTfulResult, ObservableObject {
     internal static let path : String = "api/user/role"
     
-    public var id: String?
-    public var description: String?
-    public var name: String?
-    public var normalizedName: String?
+    public var id: String = ""
+    public var description: String = ""
+    public var name: String = ""
+    public var normalizedName: String = ""
 
     /// init()
     ///   Create an empty instance of the Role object
@@ -44,10 +44,10 @@ public class Role : RESTfulResult, ObservableObject {
         super.init(with: with)
         if (with == nil) { return }
         
-        id = with!["id"] as? String
-        description = with!["description"] as? String
-        name = with!["name"] as? String
-        normalizedName = with!["normalizedName"] as? String
+        id = with!["id"] as? String ?? ""
+        description = with!["description"] as? String ?? ""
+        name = with!["name"] as? String ?? ""
+        normalizedName = with!["normalizedName"] as? String ?? ""
     }
     
     // MARK: Codable
@@ -76,10 +76,10 @@ public class Role : RESTfulResult, ObservableObject {
         
         let values = try from.container(keyedBy: CodingKeys.self)
         
-        self.id = try values.decodeIfPresent(String?.self, forKey: .id)!
-        self.description = try values.decodeIfPresent(String?.self, forKey: .description)!
-        self.name = try values.decodeIfPresent(String?.self, forKey: .name)!
-        self.normalizedName = try values.decodeIfPresent(String?.self, forKey: .normalizedName)!
+        self.id = try values.decodeIfPresent(String.self, forKey: .id)!
+        self.description = try values.decodeIfPresent(String.self, forKey: .description)!
+        self.name = try values.decodeIfPresent(String.self, forKey: .name)!
+        self.normalizedName = try values.decodeIfPresent(String.self, forKey: .normalizedName)!
     }
     
     // MARK: Encodable

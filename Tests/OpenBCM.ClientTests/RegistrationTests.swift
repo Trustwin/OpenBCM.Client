@@ -45,7 +45,7 @@ final class RegistrationTests: XCTestCase {
         
         let token : String = result!.info![0]
         
-        let confirmation : RESTfulResult? = try await Registration.confirm(connection: connection, email: reg.email ?? "", token: token);
+        let confirmation : RESTfulResult? = try await Registration.confirm(connection: connection, email: reg.email, token: token);
         if (confirmation == nil) {
             XCTFail("There is no Result object returned from the confirmation: \(connection.info?.joined(separator: "\n") ?? "")")
             return

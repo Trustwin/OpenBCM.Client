@@ -15,14 +15,14 @@ import RESTfulCore
 public class User : RESTfulResult, ObservableObject {
     internal static let path : String = "api/user/"
     
-    public var firstName: String?
-    public var lastName: String?
+    public var firstName: String = ""
+    public var lastName: String = ""
     public var registered: Date?
     public var sessionExpires: Date?
-    public var id: String?
-    public var userName: String?
-    public var email: String?
-    public var phoneNumber: String?
+    public var id: String = ""
+    public var userName: String = ""
+    public var email: String = ""
+    public var phoneNumber: String = ""
     public var emailConfirmed: Bool = false
     public var phoneNumberConfirmed: Bool = false
     public var twoFactorEnabled: Bool = false
@@ -57,14 +57,14 @@ public class User : RESTfulResult, ObservableObject {
         super.init(with: with)
         if (with == nil) { return }
         
-        firstName = with!["firstName"] as? String
-        lastName = with!["lastName"] as? String
+        firstName = with!["firstName"] as? String ?? ""
+        lastName = with!["lastName"] as? String ?? ""
         registered = with!["registered"] as? Date
         sessionExpires = with!["sessionExpires"] as? Date
-        id = with!["id"] as? String
-        userName = with!["userName"] as? String
-        email = with!["email"] as? String
-        phoneNumber = with!["phoneNumber"] as? String
+        id = with!["id"] as? String ?? ""
+        userName = with!["userName"] as? String ?? ""
+        email = with!["email"] as? String ?? ""
+        phoneNumber = with!["phoneNumber"] as? String ?? ""
         emailConfirmed = with!["emailConfirmed"] as? Bool ?? false
         phoneNumberConfirmed = with!["phoneNumberConfirmed"] as? Bool ?? false
         twoFactorEnabled = with!["twoFactorEnabled"] as? Bool ?? true
@@ -109,14 +109,14 @@ public class User : RESTfulResult, ObservableObject {
         
         let values = try from.container(keyedBy: CodingKeys.self)
         
-        self.firstName = try values.decodeIfPresent(String?.self, forKey: .firstName)!
-        self.lastName = try values.decodeIfPresent(String?.self, forKey: .lastName)!
+        self.firstName = try values.decodeIfPresent(String.self, forKey: .firstName)!
+        self.lastName = try values.decodeIfPresent(String.self, forKey: .lastName)!
         self.registered = try values.decodeIfPresent(Date?.self, forKey: .registered)!
         self.sessionExpires = try values.decodeIfPresent(Date?.self, forKey: .sessionExpires)!
-        self.id = try values.decodeIfPresent(String?.self, forKey: .id)!
-        self.userName = try values.decodeIfPresent(String?.self, forKey: .userName)!
-        self.email = try values.decodeIfPresent(String?.self, forKey: .email)!
-        self.phoneNumber = try values.decodeIfPresent(String?.self, forKey: .phoneNumber)!
+        self.id = try values.decodeIfPresent(String.self, forKey: .id)!
+        self.userName = try values.decodeIfPresent(String.self, forKey: .userName)!
+        self.email = try values.decodeIfPresent(String.self, forKey: .email)!
+        self.phoneNumber = try values.decodeIfPresent(String.self, forKey: .phoneNumber)!
         self.emailConfirmed = try values.decodeIfPresent(Bool.self, forKey: .emailConfirmed)!
         self.phoneNumberConfirmed = try values.decodeIfPresent(Bool.self, forKey: .phoneNumberConfirmed)!
         self.twoFactorEnabled = try values.decodeIfPresent(Bool.self, forKey: .twoFactorEnabled)!

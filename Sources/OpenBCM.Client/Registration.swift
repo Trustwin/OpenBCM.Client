@@ -12,11 +12,11 @@ import RESTfulCore
 public class Registration : RESTObject, ObservableObject {
     internal static let path : String = "api/User/Register/"
 
-    public var firstName : String? = nil
-    public var lastName : String? = nil
-    public var password : String? = nil
-    public var confirmPassword : String? = nil
-    public var email : String? = nil
+    public var firstName : String = ""
+    public var lastName : String = ""
+    public var password : String = ""
+    public var confirmPassword : String = ""
+    public var email : String = ""
       
     required public init() {
         super.init()
@@ -26,11 +26,12 @@ public class Registration : RESTObject, ObservableObject {
         super.init(with: with)
         if (with == nil) { return }
         
-        firstName = with!["firstName"] as? String
-        lastName = with!["lastName"] as? String
-        password = with!["password"] as? String
-        confirmPassword = with!["confirmPassword"] as? String
-        email = with!["email"] as? String
+        // if 'with!["valueName"] returns null, set an empty string
+        firstName = with!["firstName"] as? String ?? ""
+        lastName = with!["lastName"] as? String ?? ""
+        password = with!["password"] as? String ?? ""
+        confirmPassword = with!["confirmPassword"] as? String ?? ""
+        email = with!["email"] as? String ?? ""
     }
     
     // MARK: Codable
